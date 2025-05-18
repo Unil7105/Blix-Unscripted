@@ -133,7 +133,7 @@ async def generate_story(data: PromptRequest): # JWT authentication commented ou
         print(f"Received prompt: {data.prompt[:50]}... from user: anonymous") 
         
         # Process with LangChain
-        response = conversation.invoke(data.prompt)
+        response = conversation.invoke({"input": data.prompt})
         
         # Extract text from response if it's in a nested format
         response_text = response
@@ -154,3 +154,16 @@ async def generate_story(data: PromptRequest): # JWT authentication commented ou
             status_code=500,
             detail=f"Error processing your request: {str(e)}"
         )
+
+# Add a health check endpoint
+@app.get("/")
+async def root():
+    return {"status": "online", "service": "Blix-Unscripted AI Storyteller"}
+
+# Run the application with the correct host and port for Render
+if __name__ == "__main__":
+    import uvicorn
+    # Get port from environment variable or default to 8000
+    port = int(os.environ.get("PORT", 8000))
+    # Bind to 0.0.0.0 to allow external connections
+    uvicorn.run(app, host="0.0.0.0", port=port)
