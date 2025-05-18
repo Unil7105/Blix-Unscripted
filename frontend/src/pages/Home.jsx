@@ -52,10 +52,10 @@ function Home() {
     setMessage('');
     
     try {
-      console.log('Making API request to:', `http://127.0.0.1:8000/generate`);
+      // console.log('Making API request to:', `http://127.0.0.1:8000/generate`);
       
       // Make API request to your FastAPI service (Authentication removed)
-      const response = await axios.post(`http://127.0.0.1:8000/generate`, {
+      const response = await axios.post(`https://blix-unscripted.onrender.com/generate`, {
         prompt: message.trim()
       }, {
         // Add timeout and better error handling
