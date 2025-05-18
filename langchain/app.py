@@ -98,7 +98,8 @@ Always aim to deliver something emotionally impactful, lore-accurate, and thrill
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",
     google_api_key=os.getenv("GEMINI_API_KEY"),
-    temperature=0.8,  # Slightly higher temperature for more creative stories
+    temperature=0.8,
+    convert_system_message_to_human=True  # Slightly higher temperature for more creative stories
 )
 
 # Initialize conversation with proper memory formatting for chat models
