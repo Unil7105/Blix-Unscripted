@@ -1,0 +1,38 @@
+/* Comic/Manga Font Styles */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+.font-comic {
+  font-family: 'Nunito', sans-serif;
+}
+
+.comic-text {
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* Add storytelling-specific styles */
+.prose h1, 
+.prose h2, 
+.prose h3,
+.prose strong {
+  color: #10b981;
+}
+
+.dark .prose h1, 
+.dark .prose h2, 
+.dark .prose h3,
+.dark .prose strong {
+  color: #10b981;
+}
+
+/* Add dark theme base styles */
+html.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Style for chat input placeholder */
+.dark textarea::placeholder {
+  color: #9ca3af;
+}
